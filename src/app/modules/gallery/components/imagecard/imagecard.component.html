@@ -1,0 +1,12 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>ID {{item.id}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image 
+        src="{{item.photo}}" 
+        alt="Image number {{item.id}}"
+        onError="this.src='assets/img/angular.jpg'">
+    <mat-card-content>
+      <p>{{item.text}}</p>
+    </mat-card-content>
+</mat-card>

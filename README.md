@@ -1,3 +1,14 @@
+# Consideraciones previas
+
+* Para visualizar trazas desde la consola de chrome debemos incluir el nivel "verbose" para mostrar más información que la que he dejado por defecto.
+
+* Se ha corregido una pequeña errata en el enunciado respecto de la url de las imágenes. Deberia ser en lugar de .
+
+* Dado que el enunciado habla de un modelo que contenga el id de la imagen, tomamos como tal el id perteneciente a la url. Teniendo en cuenta esto, al tratarse de ids aleatorios existiran imagenes identicas (mismo id y foto) pero se diferenciaran en la descripción aleatoria que contienen.
+
+* Teniendo en cuenta que algunos de los id de imagenes no existen en la api de pruebas, no he querido entrar en comprobar uno a uno los ids correctos pero he añadido el control de error a la imagen que responda un 404 para que muestre al menos una imagen local (assets/img/angular.jpg).
+
+
 # TestApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
