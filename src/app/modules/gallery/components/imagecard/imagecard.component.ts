@@ -12,7 +12,6 @@ export class ImagecardComponent implements OnInit {
   
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

@@ -8,11 +8,12 @@
         fxFlex="50"
         class="search-input">
         <mat-form-field appearance="fill">
-            <mat-label>Search key</mat-label>
+            <mat-label>{{inputLabel}}</mat-label>
             <input matInput
                 type="text"
                 [formControl]="searchKey"
-                (input)="search()">
+                (input)="search()"
+                (keyup.enter)="search()">
         </mat-form-field>
     </mat-card>
 </div>
@@ -24,12 +25,13 @@
     (scrolled)="onScroll()"
     fxLayout="column" 
     fxLayoutAlign="space-evenly center"
-    fxLayoutGap="17px">
+    fxLayoutGap="17px"
+    class="image-list-container">
 
     <!-- Image list -->
     <div *ngFor="let item of visibleImages"
         fxLayout="row"
-        fxLayoutAlign="space-evenly center" class="ITEM">
+        fxLayoutAlign="space-evenly center" class="item">
         <app-imagecard [item]=item fxFlex="50"></app-imagecard>
     </div>
 

@@ -37,13 +37,17 @@ describe('GalleryService', () => {
   });
 
   it('generateJson() should return 4000 images', () => {
-    expect(service.generateJson().length).toEqual(4000);
+    service.generateJson().subscribe(val=>{
+      expect(val.length).toEqual(4000);
+    });
   });
 
   it('generateJson() should return ImageGallery[]" types', () => {
-    expect(typeof(service.generateJson()[1].id)).toEqual('number');
-    expect(typeof(service.generateJson()[1].photo)).toEqual('string');
-    expect(typeof(service.generateJson()[1].text)).toEqual('string');
+    service.generateJson().subscribe(val=>{
+      expect(typeof(val[1].id)).toEqual('number');
+      expect(typeof(val[1].photo)).toEqual('string');
+      expect(typeof(val[1].text)).toEqual('string');
+    });
   });
 
 

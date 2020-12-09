@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, protractor } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -8,10 +8,27 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should filter elements', () => {
     page.navigateTo();
-    page.filter("Lorem")
-    // expect(page.filter("Lorem")).toEqual('test-app app is running!');
+    let resultsNumberAtStart;
+    page.getResults().then((items) => {
+      resultsNumberAtStart = items.length
+    });
+
+    page.filter("Lorem");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    page.getResults().then((items) => 
+      expect(items.length).toBeLessThanOrEqual(resultsNumberAtStart)
+    );
+
+    page.filter("");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    page.getResults().then((items) => 
+      expect(items.length).toEqual(resultsNumberAtStart)
+    );
+
+    browser.actions().sendKeys(protractor.Key.ARROW_DOWN).perform();
+
   });
 
   afterEach(async () => {

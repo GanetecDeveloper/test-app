@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from 'protractor';
 
 import { ImagecardComponent } from './imagecard.component';
 
@@ -37,27 +36,9 @@ describe('ImagecardComponent', () => {
   });
 
   it('should show correct data', () => {
-    expect(fixture.nativeElement.querySelector('mat-card-title').innerText).toEqual('ID 17');
+    expect(fixture.nativeElement.querySelector('mat-card-title').innerText).toEqual('17');
     expect(fixture.nativeElement.querySelector('img').getAttribute('src')).toEqual(mockItem.photo);
     expect(fixture.nativeElement.querySelector('p').innerText).toEqual(mockItem.text);
   });
-
-  // it('should load default image if "random" image respond 404', () => {
-  //   const spyError = spyOn(component, "onImageError").and.callThrough();
-  //   fixture.detectChanges();
-  //   fixture.whenStable().then(() => {
-  //     expect(spyError).toHaveBeenCalled();
-  //   });
-
-  //   component.item = mockItemWithError;
-
-  //   const img = fixture.debugElement.query(By.css('img'));
-  //   img.triggerEventHandler('error', {});
-
-  //   fixture.nativeElement.querySelector('img').triggerEventHandler('error', {});
-  //   fixture.detectChanges();
-  //   expect(fixture.nativeElement.querySelector('img').getAttribute('src'))
-  //     .toEqual('assets/img/angular.jpg');
-  // });
 
 });

@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { $$, browser, by, element } from 'protractor';
 
 export class AppPage {
   navigateTo(): Promise<unknown> {
@@ -6,6 +6,16 @@ export class AppPage {
   }
 
   filter(key: string) {
-    element(by.css('input')).sendKeys(key);
+    const input = element(by.css('input'))
+    input.clear();
+    input.sendKeys(key);
+  }
+
+  getResults() {
+    return $$('.items');
+  }
+
+  getResultsTexts() {
+    return $$('.item-text');
   }
 }

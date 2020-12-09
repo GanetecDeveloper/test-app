@@ -69,29 +69,71 @@ describe('MainComponent', () => {
     expect(component.actualPage).toEqual(1);
   });
 
-  it('search() filter by text', () => {
+  
+  it('search() filter by text (find one result)', (async () => {
+    component.allImages = mockImageList;
     component.initData(mockImageList);
-    expect(component.filterImages).toEqual(mockImageList);
-    
+    expect(component.filterImages).toEqual(mockImageList);    
+
+    const input = fixture.nativeElement.querySelector('input');
+    input.value = 'mock test1';
+    input.dispatchEvent(new Event('input'));
     component.searchKey.setValue("mock test1");
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(input.value).toEqual("mock test1");
     expect(component.searchKey.value).toEqual("mock test1");
     component.search();
-    console.log(component.filterImages);
+
+    fixture.detectChanges();
+    await fixture.whenStable();
     expect(component.filterImages.length).toEqual(1);
     expect(component.filterImages[0].text).toEqual("mock test1");
+  }));
 
-    // component.searchKey.setValue("mock");
-    // component.search();
-    // expect(component.filterImages).toEqual(
-    //   mockImageList
-    // );
+  it('search() filter by text (find some result)', (async () => {
+    component.allImages = mockImageList;
+    component.initData(mockImageList);
+    expect(component.filterImages).toEqual(mockImageList);    
 
-    // component.searchKey.setValue("mock test99999");
-    // component.search();
-    // expect(component.filterImages).toEqual(
-    //   []
-    // );
+    let input = fixture.nativeElement.querySelector('input');
+    input.value = 'mock';
+    input.dispatchEvent(new Event('input'));
+    component.searchKey.setValue("mock");
 
-  });
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(input.value).toEqual("mock");
+    expect(component.searchKey.value).toEqual("mock");
+    component.search();
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(component.filterImages.length).toEqual(mockImageList.length);
+    expect(component.filterImages).toEqual(mockImageList);
+  }));
+
+  it('search() filter by text (no result)', (async () => {
+    component.allImages = mockImageList;
+    component.initData(mockImageList);
+    expect(component.filterImages).toEqual(mockImageList);    
+
+    let input = fixture.nativeElement.querySelector('input');
+    input.value = 'mock test99999';
+    input.dispatchEvent(new Event('input'));
+    component.searchKey.setValue("mock test99999");
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(input.value).toEqual("mock test99999");
+    expect(component.searchKey.value).toEqual("mock test99999");
+    component.search();
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(component.filterImages.length).toEqual(0);
+    expect(component.filterImages).toEqual([]);
+  }));
 
 });
