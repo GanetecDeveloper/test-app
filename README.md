@@ -2,7 +2,7 @@
 
 * Para visualizar trazas desde la consola de chrome debemos incluir el nivel "verbose" para mostrar más información que la que he dejado por defecto.
 
-* Se ha corregido una pequeña errata en el enunciado respecto de la url de las imágenes. Deberia ser en lugar de .
+* Se ha corregido una pequeña errata en el enunciado respecto de la url de las imágenes. Deberia ser "https://picsum.photos/id/{id}/500/333.jpg" en lugar de "https://i.picsum.photos/id/{id}/500/333".
 
 * Dado que el enunciado habla de un modelo que contenga el id de la imagen, tomamos como tal el id perteneciente a la url. Teniendo en cuenta esto, al tratarse de ids aleatorios existiran imagenes identicas (mismo id y foto) pero se diferenciaran en la descripción aleatoria que contienen.
 
