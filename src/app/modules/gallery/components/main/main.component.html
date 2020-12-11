@@ -3,7 +3,7 @@
     fxLayout="row"
     fxLayoutAlign="center center">
     <mat-card 
-        fxLayout="row"
+        fxLayout="column"
         fxLayoutAlign="space-evenly center"
         fxFlex="50"
         class="search-input">
@@ -15,6 +15,7 @@
                 (input)="search()"
                 (keyup.enter)="search()">
         </mat-form-field>
+        <div>{{infoText}}</div>
     </mat-card>
 </div>
 
@@ -31,7 +32,7 @@
     <!-- Image list -->
     <div *ngFor="let item of visibleImages"
         fxLayout="row"
-        fxLayoutAlign="space-evenly center" class="item">
+        fxLayoutAlign="space-evenly center" class="e2e-item">
         <app-imagecard [item]=item fxFlex="50"></app-imagecard>
     </div>
 

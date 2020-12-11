@@ -1,21 +1,27 @@
-import { $$, browser, by, element } from 'protractor';
+import { $$, browser, by, element, protractor } from 'protractor';
 
 export class AppPage {
   navigateTo(): Promise<unknown> {
     return browser.get(browser.baseUrl) as Promise<unknown>;
   }
 
-  filter(key: string) {
+  async filter(key: string) {
     const input = element(by.css('input'))
-    input.clear();
-    input.sendKeys(key);
+    await input.clear();
+    await input.sendKeys(key);
+    await browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    console.log(` # Filter by: "${key}"`);
   }
 
   getResults() {
-    return $$('.items');
+    return $$('.e2e-items');
+  }
+
+  getResultsIds() {
+    return $$('.e2e-item-id');
   }
 
   getResultsTexts() {
-    return $$('.item-text');
+    return $$('.e2e-item-text');
   }
 }
