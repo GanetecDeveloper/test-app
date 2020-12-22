@@ -1,0 +1,8 @@
+[
+    {
+      "displayName": "Gallery",
+      "iconName": "description",
+      "route": "gallery",
+	  "profiles": [""]
+    }
+]

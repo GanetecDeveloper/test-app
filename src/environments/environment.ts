@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  APIS: {
+    MENU: '/assets/mocks/',
+    SECURITY: 'http://localhost:3000/',
+  },
+  CORE_CONFIG: {
+    /** Ruta del fichero de configuración necesario para que arranque la aplicación */
+    CONFIG_FILEPATH: 'assets/config/config.json',
+    /** Añade a la url del proyecto el siguiente path */
+    BASE_URL: '/',
+  },
 };
 
 /*

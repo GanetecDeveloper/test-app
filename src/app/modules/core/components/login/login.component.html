@@ -1,0 +1,31 @@
+<div>
+    <form [formGroup]="LoginForm">
+        <mat-card-title>
+            Identificación
+        </mat-card-title>
+        <div fxLayout="column" fxLayoutAlign="space-between center">
+                        
+            <mat-form-field appearance="outline">
+                <input matInput type="text" formControlName="username">
+                <mat-label>Usuario*</mat-label>
+                <mat-error>
+                    Por favor, complete el usuario.
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="large-font">
+                <input matInput type="password" formControlName="password">
+                <mat-label>Contraseña*</mat-label>
+                <mat-error>
+                    Introduzca la identificación de la persona.
+                </mat-error>
+            </mat-form-field>
+            
+        </div>
+        <button type="submit" (click)="getToken(this.LoginForm.get('username').value, this.LoginForm.get('password').value)" mat-button mat-raised-button color="primary">Identificarse</button>
+    </form>
+    
+    <hr>
+    <button type="submit" mat-button mat-raised-button color="primary">Usar certificado digital</button>
+</div>
+

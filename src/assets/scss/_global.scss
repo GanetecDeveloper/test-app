@@ -1,0 +1,123 @@
+body {
+    background-color: $neutral-background-color; // $jcyl-primary-color;
+}
+
+mat-card {
+    margin: 10px;
+}
+
+.mat-card-title {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.mat-expansion-panel {
+    background-color: $neutral-background-color;
+}
+
+// .mat-expansion-panel-header {
+//     background-color: $jcyl_secondary_color;
+// }
+// .mat-expansion-panel-body {
+//     background: #f9f9f9 !important;
+// }
+// .mat-expansion-panel-header.mat-expanded:focus, .mat-expansion-panel-header.mat-expanded:hover,
+// .mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled=true]), 
+// .mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled=true]), 
+// .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+//     background-color: $jcyl_secondary_color !important; // TODO: Aplicar color darker
+// }
+
+mat-form-field.large-font .mat-form-field-label {
+    font-weight: bolder !important;
+    font-size: medium !important;
+}
+
+.toolbar-logo {
+    height: 60px !important;
+    margin: -23px 0px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+::ng-deep .mat-slider-thumb-label {
+    border-radius: 50% 50% 0 !important;
+    transform: rotate(45deg) !important;
+    background-color: $neutral-background-color !important;
+}
+::ng-deep .mat-slider-thumb-label-text {
+    opacity: 1 !important;
+}
+
+.mat-tab-body-content-card {
+    background: $neutral-background-color;
+    padding: 16px 24px !important;
+    margin: 0;
+}
+
+.center {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.mat-checkbox {
+    margin-bottom: 15px;
+}
+
+.mat-slider {
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+.mat-icon.validation-error {
+    line-height: 17px;
+    color: $validation-error;
+    font-weight: bolder;
+    font-size: x-large;
+    padding-right: 5px;
+}
+
+.mat-icon.validation-success {
+    line-height: 17px;
+    color: $validation-success;
+    font-weight: bolder;
+    font-size: x-large;
+    padding-right: 5px;
+}
+.mat-form-field {
+    margin-bottom: 15px;
+}
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit, .mat-step-icon-state-number, .mat-step-header .mat-step-icon-state-check,
+.mat-step-header .mat-step-icon-state-number {
+    background-color: white !important;
+    color: black
+}
+
+.mat-step-header .mat-step-icon-state-check, .mat-step-header .mat-step-icon-state-done {
+    color: $validation-success;
+}
+
+.errorNotification {
+    background-color: red;
+    color: white;
+}
+
+.warningNotification {
+    background-color: #F1A708;
+    color: black;
+}
+
+.successNotification {
+    background-color: #116109;
+}
+
+.informationNotification {
+    background-color: #483939;
+}

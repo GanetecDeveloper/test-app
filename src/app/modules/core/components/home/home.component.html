@@ -1,0 +1,109 @@
+<mat-toolbar 
+    class="main-toolbar"
+    [class.is-mobile]="mobileQuery.matches" 
+    color="primary">
+    <mat-toolbar-row>
+        <a href="{{app.toolbarLeftLogoUrl}}" 
+          id="topRightLogo" 
+          *ngIf="app.toolbarLeftLogoImage">
+          <img src="{{app.toolbarLeftLogoImage}}" 
+            width="110px" style="margin-top: 5%; border-radius: 13%;" 
+            alt="{{app.toolbarRightLogoAltText}}" 
+            id="topLeftLogo">
+        </a>
+        <button mat-button (click)="snav.toggle()" 
+          aria-label="Menú de navegación" 
+          *ngIf="isLogged()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="apptitle"><a routerLink="/">{{ this.actualPage }}</a></h1>
+        <span class="spacer"></span>
+        <a href="{{toolbarRightLogoUrl}}" 
+          id="topRightLogo"
+          *ngIf="app.toolbarRightLogoImage">
+            <img src="{{app.toolbarRightLogoImage}}" 
+              class="toolbar-logo" 
+              alt="{{app.toolbarRightLogoUrl}}">
+        </a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container
+    class="main-container"
+    [class.is-mobile]="mobileQuery.matches">
+    <!-- [style.marginTop.px]="mobileQuery.matches ? 56 : 0" -->
+
+    <mat-sidenav #snav 
+        [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches" 
+        fixedTopGap="56">
+      <mat-nav-list class="main-nav-list">
+        <span *ngFor="let item of menu">
+            <span *ngIf="item.children && item.children.length > 0 && checkProfiles(item.profiles, item.multiple)">
+              <mat-accordion>
+                <mat-expansion-panel style="background: white">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <!-- Cabeceras del submenu -->
+                      <div fxLayout="row" fxLayoutAlign="space-between center" > 
+                        <mat-icon color="primary">{{item.iconName}}</mat-icon>
+                        {{item.displayName}}
+                      </div>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <span *ngFor="let child of item.children">
+                    <mat-list-item *ngIf="checkProfiles(child.profiles, child.multiple)" (click)="closeSidenav()" routerLink={{child.route}}>
+                      <!-- Entradas de cada submenú  -->
+                      <div fxLayout="row" fxLayoutAlign="space-between center" > 
+                        <mat-icon color="primary" style="margin-right: 5px">{{child.iconName}}</mat-icon>
+                        {{child.displayName}}
+                      </div>
+                    </mat-list-item>
+                  </span>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </span>
+            <span *ngIf="(!item.children || item.children.length === 0) && checkProfiles(item.profiles, item.multiple)">
+              <mat-list-item (click)="closeSidenav()" routerLink="{{item.route}}">
+                <!-- Entradas principales -->
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <mat-icon color="primary">{{item.iconName}}</mat-icon>
+                  {{item.displayName}}
+                </div>
+              </mat-list-item>
+            </span>
+          </span>
+          <span *ngIf="isLogged()">
+            <mat-list-item (click)="logout()">
+              <!-- Entradas principales -->
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-icon color="primary">exit_to_app</mat-icon>
+                Salir
+              </div>
+            </mat-list-item>
+          </span>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content 
+      [class.is-mobile]="mobileQuery.matches"
+      style="min-height: 90%;">
+      <!-- TODO: Crear sistema de breadcrumbs con servicio añadido -->
+      <!-- <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-card style="min-height: 100%;"
+          fxFlex.xl="65" fxFlex.lg="70" fxFlex.md="70" fxFlex.sm="90" fxFlex.xs="90">
+          Inicio > Test de Empleabilidad
+        </mat-card>
+      </div> -->
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="center cardClass"
+          fxFlex.xl="100" fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100" fxFlex.xs="100">
+          <!-- TODO: modificar full screen-->
+          <!-- <mat-card-header>Test de empleabilidad</mat-card-header> -->
+          <router-outlet></router-outlet>
+        </mat-card>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+

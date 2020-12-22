@@ -1,0 +1,185 @@
+$jcyl-primary-color: #BA0C2F; // PANTONE 200 C
+$jcyl-secondary-color: #FFC72C; // PANTONE 123 C
+$jcyl-tertiary-color: #890C58; // PANTONE 228 C
+$neutral-background-color: #d6d6d6;
+$validation-error: #ba0c2f;
+$validation-success: #32ca3d;
+
+// $buttonTextColor: #FFF;
+// $primaryWithStateBackground: darken($primaryColor, 5%);
+// $primaryWithStateBorder: darken($primaryColor, 10%);
+// $primaryWithStateText: #FFF;
+
+$jcyl-primary-palette-colors: (
+    50 : #f7e2e6,
+    100 : #eab6c1,
+    200 : #dd8697,
+    300 : #cf556d,
+    400 : #c4304e,
+    500 : #ba0c2f,
+    600 : #b30a2a,
+    700 : #ab0823,
+    800 : #a3061d,
+    900 : #940312,
+    A100 : #ffbfc3,
+    A200 : #ff8c93,
+    A400 : #ff5963,
+    A700 : #ff404b,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$jcyl-secondary-palette-colors: (
+    50 : #fff8e6,
+    100 : #ffeec0,
+    200 : #ffe396,
+    300 : #ffd86b,
+    400 : #ffcf4c,
+    500 : #ffc72c,
+    600 : #ffc127,
+    700 : #ffba21,
+    800 : #ffb31b,
+    900 : #ffa610,
+    A100 : #ffffff,
+    A200 : #fffcf8,
+    A400 : #ffe8c5,
+    A700 : #ffddac,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$jcyl-tertiary-palette-colors: (
+    50 : #f1e2eb,
+    100 : #dcb6cd,
+    200 : #c486ac,
+    300 : #ac558a,
+    400 : #9b3071,
+    500 : #890c58,
+    600 : #810a50,
+    700 : #760847,
+    800 : #6c063d,
+    900 : #59032d,
+    A100 : #ff8bba,
+    A200 : #ff589c,
+    A400 : #ff257e,
+    A700 : #ff0b6f,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-gray-palette-colors: (
+    50 : #eeeeee,
+    100 : #d5d4d5,
+    200 : #b9b8b9,
+    300 : #9d9b9c,
+    400 : #888587,
+    500 : #737072,
+    600 : #6b686a,
+    700 : #605d5f,
+    800 : #565355,
+    900 : #434142,
+    A100 : #e8e8e8,
+    A200 : #b8b8b8,
+    A400 : #8d8d8d,
+    A700 : #707372,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$md-white-palette-colors: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+// Variables usadas en custom-theme para crear el tema personalizado de angular material.
+$md-primary-palette-colors: $jcyl-primary-palette-colors;
+$md-accent-palette-colors: $jcyl-primary-palette-colors;
+$md-warn-palette-colors: $jcyl-tertiary-palette-colors;
+$jcyl-primary-color: $jcyl-primary-color;
+$jcyl-secondary-color: $jcyl-secondary-color;
+$jcyl-tertiary-color: $jcyl-tertiary-color;

@@ -1,0 +1,132 @@
+{
+    "env": {
+        "name": ""
+    },
+    "logging": {
+        "console": true,
+        "appInsights": true
+    },
+   "ws": {
+    "menu": "menu"
+   },
+   "coreConfig": {
+    "security": {
+        "sessionExpireTimeInMinutes": 15,
+        "ws":{
+            "loginCredentials": {
+                "path": "api/oauth/token",
+                "headers": {
+                    "Authorization": "Basic bmctdGVzdDo=",
+                    "ContentType": "application/x-www-form-urlencoded;charset=utf-8",
+                    "grant_type": "username"
+                },
+                "body": "\"grant_type=password&username=\" + username + \"&password=\" + password"
+            },
+            "loginCertificate": {
+                "path": "api/cert/test",
+                "headers": {
+                },
+                "body": ""
+            },
+            "logout": {
+                "path": "logout/",
+                "headers": {
+                },
+                "body": ""
+            }
+        },
+        "ngPaths": {
+            "login": "/login",
+            "logout": "/logout",
+            "loginOk": "/login",
+            "home": "/"
+        },
+        "loginTypes": ["CERTIFICATE", "CREDENTIALS"],
+        "onLoginOkRedirectEnabled": true,
+        "onLoginOkRedirectTo": "/",
+        "onLogoutCloseAtBack": true
+      }
+    },
+   "app": {
+    "name": "SICAS",
+    "toolbarRightLogoImage": "",
+    "toolbarRightLogoAltText": "",
+    "toolbarRightLogoUrl": "/",
+    "toolbarLeftLogoImage": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    "toolbarLeftLogoAltText": "ALT TEXT GOOGLE",
+    "toolbarLeftLogoUrl": "www.google.com",
+    "routes": {
+        "/": "Inicio",
+        "/test-empleabilidad": "Test empleabilidad",
+        "/login": "Identificación",
+        "/test-empleabilidad/*": "Consulta empleador",
+        "/test-empleabilidad/login": "Login",
+        "/empresario/nuevoEmpresario": "Alta empresario",
+        "/empresario/consultaEmpresario": "Buscar empresario",
+        "/empresario/consultaEmpresario/*": "Detalles empresario"
+    }
+   },
+   "modulesConfig": {
+      "testDeEmpleabilidad": {
+         "ws": {
+            "query": "api/rest/empleabilidad/consulta/",
+            "queryNew": "api/rest/empleabilidad/consultaNuevo/",
+            "save": "api/rest/empleabilidad/guardar/",
+            "diagnose": "api/rest/empleabilidad/diagnosticar/",
+            "token": "api/oauth/token",
+            "profiles": "api/rest/usuario/acciones/",
+            "cert": "api/cert/test"
+        },
+        "slider": {
+            "min": 0,
+            "max": 5
+        },
+        "familyColumns": [
+            "family",
+            "hours"
+        ],
+        "areaColumns": [
+            "area",
+            "hours"
+        ],
+        "timeList": [
+            {"value": "A", "option": "No tengo un tiempo mínimo"},
+            {"value": "B", "option": "Un día a la semana"},
+            {"value": "C", "option": "Varios días a la semana"},
+            {"value": "D", "option": "Cada día"}
+        ],
+        "identificationList": [
+            {"value": "D", "option": "D.N.I."},
+            {"value": "E", "option": "NUMERO IDENTIFICATIVO EXTRANJERO N.I.E."}
+        ],
+        "mediaList": [
+            {"value": "A", "option": "Portal de empleo ECYL"},
+            {"value": "B", "option": "App ECYL"},
+            {"value": "C", "option": "BOLETÍN DE EMPLEO"},
+            {"value": "D", "option": "Red de contactos"},
+            {"value": "E", "option": "Portales de empleo privados (internet) y redes sociales"},
+            {"value": "F", "option": "Consulta la prensa general y/o especializada y tablones de anuncios"},
+            {"value": "G", "option": "Oficina de Empleo"},
+            {"value": "H", "option": "ETT y Agencias de colocación"},
+            {"value": "I", "option": "Presenta CV a empresas"},
+            {"value": "J", "option": "Ninguno de los anteriores"}
+        ],
+        "geographicAvailabilityColumns": [
+            "country",
+            "autonomousCommunity",
+            "province",
+            "supramunicipalEntity",
+            "municipality"
+        ]
+      },
+      "empresario": {
+         "ws": {
+            "consultaEmpresario": "consultaEmpresario",
+            "consultaEmpleador": "consultaEmpleador"
+        }
+      }
+   },
+   "extras": {
+
+   }
+}
