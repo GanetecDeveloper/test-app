@@ -1,7 +1,4 @@
 import { APP_INITIALIZER, ErrorHandler, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { HttpClient, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -15,19 +12,15 @@ import { GlobalErrorHandler } from './handlers/global-error.handler';
 import { HttpInterceptorProviders } from './interceptors';
 import { AppConfigService } from './services/app-config.service';
 import { LoggingService } from './services/logging.service';
-import { CoreImportsModule } from './modules/core-imports.module';
 import { CoreRoutingModule } from './core-routing.module';
+import { ComponentsModule } from './components/components.module';
 
 
 
 @NgModule({
-  declarations: [
-    HomeComponent, 
-    LoginComponent
-  ],
+  declarations: [],
   imports: [
     CoreRoutingModule,
-    CommonModule,
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
@@ -38,16 +31,14 @@ import { CoreRoutingModule } from './core-routing.module';
       cookieName: 'MY-XSRF-TOKEN',
       headerName: 'MY-X-CSRF-TOKEN',
     }),
-    CoreImportsModule,
+    ComponentsModule
   ],
   exports: [
-    HomeComponent,
-    LoginComponent,
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    BrowserModule,
     HttpClientXsrfModule,
+    ComponentsModule,
   ],
   providers: [
     HttpClient,

@@ -7,7 +7,10 @@ import { ImagecardComponent } from './components/imagecard/imagecard.component';
 import { CoreImportsModule } from '../core/modules/core-imports.module';
 
 @NgModule({
-  declarations: [MainComponent, ImagecardComponent],
+  declarations: [
+    MainComponent, 
+    ImagecardComponent
+  ],
   imports: [
     CoreImportsModule,
     GalleryRoutingModule,

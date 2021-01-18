@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import '../../../../custom-elements/g360/test-element';
 
 @Component({
   selector: 'app-main',
